@@ -1,0 +1,61 @@
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">帮助</view>
+  </cu-custom>
+  <view class="cu-card article">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-red">声明 !</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">功能仅供个人娱乐学习,严禁商业用途。解析出来的视频归相关网站及作者所有。本站不储存任何视频及图片。</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">如何保存图片？</view>
+      </view>
+      <view class="content">
+        <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+        <view class="desc">
+          <view class="text-content">点击图片，进入预览页面，然后长按图片，选择保存图片皆可！！！</view>
+          <!-- <view class="text-content"></view> -->
+          <view>
+            <view class="cu-tag bg-red light sm round">帮助</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">突然使用不了,下载不了怎么办？</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">小程序处于活跃开发期，经常更新，可能导致更改页面路径，如若页面没有内容，点击右上角的 。。。 重启小程序试试。</view>
+          <view>
+            <view class="cu-tag bg-red light sm round">帮助</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">为什么要获取个人信息和签到？</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">获取微信信息仅为”头像“和”昵称“，请放心授权；每日签到获得20分，下拉加载和点击图片都会扣掉1分。</view>
+          <view>
+            <view class="cu-tag bg-red light sm round">帮助</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

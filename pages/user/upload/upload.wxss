@@ -1,0 +1,16 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.input-area{
+  background-color: #fff;
+  text-align: left;
+  padding-left: 10%;
+  border-bottom:1px solid #ddd;
+  border-top:1px solid #ddd
+}
+
+.video {
+  height: 400rpx;
+  border-radius: 10rpx;
+  margin-top: 15rpx;
+}

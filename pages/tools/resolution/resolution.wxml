@@ -1,0 +1,130 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">去水印</view>
+</cu-custom>
+<!-- <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image> -->
+
+<!-- <view class="padding flex text-center text-grey bg-white shadow-warp">
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-blue">{{userInfo.signInSum}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-squarecheck"></text>累计签到
+    </view>
+  </view>
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-orange">{{userInfo.videoNumber}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-vip"></text>积分
+    </view>
+  </view>
+</view> -->
+<view class="cu-card article">
+  <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-blue">使用说明!</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">暂时只支持抖音视频，复制好了抖音视频分享链接（不需要删除多余文字），直接点击【粘贴】按钮，如果提示获取粘贴内通权限，请放心允许粘贴。</view>
+        </view>
+      </view>
+    </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+
+  <view wx:if="{{videoTitle}}" class="cu-item">
+    <view class="content">
+      <text class="text-grey text-sm">{{videoTitle?videoTitle:"视频标题"}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{videoUrl}}" class="cu-item" style="padding: 0;">
+    <view class="content" style="justify-content: center;">
+      <video src="{{videoUrl}}" title="{{videoTitle}}" object-fit="contain" style="width: 100%;"></video>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../../images/video-icon/logo-douyin.png" class="png" mode="aspectFit"></image>
+      <!-- 
+      <image src="../../../images/video-icon/logo-volcano.png" class="png" mode="aspectFit"></image>
+      -->
+    </view>
+    <view class="action">
+      <button class="cu-btn line-blue" wx:if="{{videoUrl}}" bindtap="saveVideo">下载</button>
+      <button class="cu-btn line-blue" wx:if="{{videoUrl}}" bindtap="copyUrl">复制</button>
+      <button class="cu-btn line-blue" bindtap="paste">粘贴</button>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-warn text-red"></text>
+      <text class="text-grey text-sm">如果出现解析失败的情况请退出重试，如果下载失败，请直接点击【复制】地址到自带浏览器打开下载，通常电脑浏览器可以打开后直接下载</text>
+    </view>
+  </view>
+</view>
+
+<view class="padding flex flex-direction" wx:if="{{!isButton}}">
+  <button bindtap="submit" class="cu-btn bg-blue lg" type="" disabled>
+    <text class="cuIcon-loading iconfont-spin"></text>
+    解析中
+  </button>
+</view>
+
+<view class="cu-modal {{isShow?'show':''}}">
+  <view class="cu-dialog">
+    <video src="{{videoUrl}}" controls="false" autoplay="true" muted="true" style="margin: 25px 0px 0px">
+      <view class="cu-bar justify-end text-blue">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </video>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub solid-left text-blue" bindtap="saveVideo">保存到相册</view>
+    </view>
+  </view>
+</view>
+
+<view class='cu-load load-modal' wx:if="{{isDownload}}">
+  <image src='/images/logo.jpg' class='png round' mode='aspectFit'></image>
+  <view class='gray-text'>视频保存中</view>
+</view>
+
+<view class="cu-modal show" wx:if="{{isUrlDownload}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">微信域解析异常</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view>
+      你可以复制以下链接到浏览器进行下载
+    </view>
+    <view class="padding-xl">
+      <text style="-webkit-line-clamp: 2;">{{shortUrl}}</text>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-blue margin-left" bindtap="copyUrl">复制</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-red">声明 !</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">功能仅供个人娱乐学习,严禁商业用途。解析出来的视频归相关网站及作者所有。本站不储存任何视频及图片。</view>
+        </view>
+      </view>
+    </view>
+</view>

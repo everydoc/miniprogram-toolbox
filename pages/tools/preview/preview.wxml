@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">图片预览</view>
+</cu-custom>
+
+<view class="solids-bottom">
+  <view class="cu-card case">
+    <image class="shadow image" wx:for="{{videoList}}" wx:key="index" lazy-load="true" src="{{imageUrl + item.folderName + '/thumbnail-' + item.realName}}" mode="widthFix" style="width: 33%;" bindtap="preview" id="{{index}}"></image>
+  </view>
+</view>

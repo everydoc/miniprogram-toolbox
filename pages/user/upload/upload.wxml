@@ -1,0 +1,26 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">上传图片</view>
+</cu-custom>
+<view>
+  <!-- <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image> -->
+
+  <form bindsubmit="formSubmit">
+    <image wx:for="{{files}}" wx:key="index" id="index" class="video" src="{{item.tempFilePath}}" mode="widthFix" style="width: 25%;"></image>
+
+    <view class="cu-form-group">
+      <view wx:if="{{files.length < 9}}" class="grid col-4 grid-square flex-sub justify-end">
+        <view class="solids" bindtap="pickVideo">
+          <text class="cuIcon-cameraadd" style="color: blue;"></text>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <navigator open-type="navigateBack" class="cu-btn line-green text-green">取消</navigator>
+        <button class="cu-btn bg-green margin-left" form-type="submit">确定</button>
+      </view>
+    </view>
+  </form>
+</view>

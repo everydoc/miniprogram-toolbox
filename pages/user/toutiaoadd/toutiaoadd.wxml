@@ -1,0 +1,35 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">添加用户</view>
+</cu-custom>
+<image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
+
+<form catchsubmit="addUser">
+  <view class="cu-form-group">
+    <input id="userDoamin" name="userDomain" class="solid-bottom" placeholder="头条用户首页链接" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+    <button class="cu-btn bg-green shadow " form-type="submit">提交</button>
+  </view>
+</form>
+
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-red">声明 !</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">电脑浏览器打开自己的头条主页，复制浏览器的地址链接贴入这里，点击提交即可，只能提交一个头条账号，每天会采集该头条账号的前20个关注账号的数据。</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-red">声明 !</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">如果操作失败，请联系作者，可以帮助添加。</view>
+      </view>
+    </view>
+  </view>
+  </view>

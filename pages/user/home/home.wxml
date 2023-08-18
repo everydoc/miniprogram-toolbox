@@ -1,0 +1,107 @@
+<!-- <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image> -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人中心</view>
+</cu-custom>
+<official-account></official-account>
+
+<view class="padding flex text-center text-grey bg-white shadow-warp">
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-blue">{{userInfo.signInSum}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-squarecheck"></text>累计签到
+    </view>
+  </view>
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-orange">{{userInfo.videoNumber}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-vip"></text>积分
+    </view>
+  </view>
+  <!-- <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text>成功邀请好友</view>
+    </view> -->
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view wx:if="{{!userInfo.isSignedIn}}" class="cu-item" style="padding-right: 0;">
+    <button class="cu-btn content" bindtap="sign">
+      <text class="cuIcon-we text-blue"></text>
+      <text class="text-grey">每日签到</text>
+    </button>
+  </view>
+
+  <view class="cu-item arrow" style="padding-right: 0;">
+    <button class="cu-btn content" open-type="contact">
+      <text class="cuIcon-message text-cyan"></text>
+      <text class="text-grey">联系作者</text>
+    </button>
+  </view>
+
+  <view class="cu-item arrow" style="padding-right: 0;">
+    <navigator class="content" url="/pages/user/help/help" hover-class="none">
+      <text class="cuIcon-my text-green"></text>
+      <text class="text-grey">帮助&声明</text>
+    </navigator>
+  </view>
+
+  <!-- <view class="cu-item arrow" style="padding-right: 0;">
+    <navigator class="content" url="/pages/user/toutiaoadd/toutiaoadd" hover-class="none">
+      <image class="png round" src="/images/video-icon/logo-toutiao.png"></image>
+      <text class="text-grey">绑定头条</text>
+    </navigator>
+  </view> -->
+
+  <view wx:if="{{isAdmin}}" class="cu-item arrow" style="padding-right: 0;">
+    <navigator class="content" url="/pages/user/upload/upload" hover-class="none">
+      <text class="cuIcon-upload text-blue"></text>
+      <text class="text-grey">上传图片</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="cu-tabbar-height"></view>
+
+<view class="cu-modal {{success?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">友情提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      签到成功积分<text style="color:red">+20</text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{error?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">友情提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="color:text-red">
+      <text style="color:red">一天签到一次～请勿重复签到</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{error?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">友情提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="color:text-red">
+      <text style="color:red">一天签到一次～请勿重复签到</text>
+    </view>
+  </view>
+</view>

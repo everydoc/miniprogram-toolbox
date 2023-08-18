@@ -1,0 +1,27 @@
+<!--问卷详情页-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{shareId == null}}">
+  <view slot="backText">返回</view>
+  <view slot="content">问卷详情</view>
+</cu-custom>
+
+<view class="detailcontainer">
+  <view class="detail-item">
+    <image class="images" src='{{questionImg}}'></image>
+    <view class="item-right">
+      <view class="item-title">{{questionTitle}}</view>
+      <view class="item-desc">{{questionDesc}}</view>
+    </view>
+    <view>
+      <navigator class="text-blue" wx:if="{{status == '1'}}" open-type="navigate" url="/pages/survey/myanswer/myanswer?questionId={{questionId}}">看问卷</navigator>
+    </view>
+  </view>
+  <!-- 分隔符 -->
+  <view class="point"></view>
+  <!-- 按钮 -->
+  <view class="btn-item">
+    <button wx:if="{{status== '0'}}" class="btn" data-questionId="{{questionId}}" bindtap="gotoAnswer">开始答卷</button>
+    <!-- <button wx:if="{{status== '1'}}" class="done-btn" bindtap="hasAnswer">已完成作答</button> -->
+    <navigator class="text-blue" wx:if="{{shareId != null}}" open-type="navigate" url="/pages/survey/home/home">问卷中心</navigator>
+    <!-- <navigator class="text-blue" wx:if="{{status == '1'}}" open-type="navigate" url="/pages/survey/myanswer/myanswer?questionId={{questionId}}">看问卷</navigator> -->
+  </view>
+</view>

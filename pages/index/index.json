@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tools": "/pages/tools/home/home",
+    "user": "/pages/user/home/home",
+    "survey": "/pages/survey/home/home"
+  }
+}

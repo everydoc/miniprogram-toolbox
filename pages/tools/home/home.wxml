@@ -1,0 +1,59 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+  <view slot="backText">返回</view>
+  <view slot="content">工具集</view>
+</cu-custom>
+<!-- <image src='/images/componentBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image> -->
+
+<view class='nav-list' style="padding:10px 10px 0px;">
+  <navigator open-type="navigate" hover-class='none' url="/pages/tools/preview/preview" class="nav-li bg-cyan">
+    <view class="nav-title">每日美图</view>
+    <view class="nav-name">preview</view>
+    <!-- <text class='cuIcon-album'></text> -->
+    <image class="cuIcon round" style="width: 36px; height: 36px;" src="/images/logo.jpg"></image>
+  </navigator>
+
+  <navigator open-type="navigate" hover-class='none' url="/pages/tools/resolution/resolution" class="nav-li bg-orange">
+    <view class="nav-title">抖音去水印</view>
+    <view class="nav-name">resolution</view>
+    <!-- <text class='cuIcon-video'></text> -->
+    <image class="cuIcon" style="width: 36px; height: 36px;" src="/images/video-icon/logo-douyin.png"></image>
+  </navigator>
+
+  <navigator open-type="navigate" hover-class='none' url="/pages/tools/toutiao/toutiao" class="nav-li bg-red">
+    <view class="nav-title">头条同行分析</view>
+    <view class="nav-name">toutiao</view>
+    <!-- <text class="cuIcon-video"></text> -->
+    <image class="cuIcon" style="width: 36px; height: 36px;" src="/images/video-icon/logo-toutiao.png"></image>
+  </navigator>
+
+  <!-- <navigator open-type="navigate" hover-class='none' url="/pages/tools/survey/home/home" class="nav-li bg-yellow">
+    <view class="nav-title">问卷调查</view>
+    <view class="nav-name">survey</view>
+    <image class="cuIcon" style="width: 36px; height: 36px;" src="/images/survey.png"></image>
+  </navigator> -->
+</view>
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-red">通知 !</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">添加了头条同行粉丝监控功能，具体就是，提交你的首页链接，小程序会每天自动采集你关注的用户的数据（粉丝数据、近期热门内容）展示成图表。</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-red">声明 !</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">注意了，注意了，注意了，新增了抖音去水印功能哦！另外，欢迎大家踊跃签到啊，每日签到+20积分，下载视频1次1分哦！</view>
+        </view>
+      </view>
+    </view> -->
+
+</view>
+<view class='cu-tabbar-height'></view>

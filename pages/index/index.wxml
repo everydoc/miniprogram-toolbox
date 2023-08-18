@@ -1,0 +1,28 @@
+<tools wx:if="{{PageCur=='tools'}}"></tools>
+<user wx:if="{{PageCur=='user'}}"></user>
+<survey wx:if="{{PageCur=='survey'}}"></survey>
+
+
+<view class="cu-bar tabbar bg-white shadow foot">
+
+  <view class="action" bindtap="NavChange" data-cur="tools">
+    <view class='cuIcon-cu-album'>
+      <view class="cuIcon-album {{PageCur=='tools'?'text-blue':'text-gray'}}"></view>
+    </view>
+    <view class="{{PageCur=='tools'?'text-blue':'text-gray'}}">自媒体</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="survey">
+    <view class='cuIcon-cu-image'>
+      <view class="cuIcon-edit {{PageCur=='survey'?'text-blue':'text-gray'}}"></view>
+    </view>
+    <view class="{{PageCur=='survey'?'text-blue':'text-gray'}}">问卷调查</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="user">
+    <view class='cuIcon-cu-image'>
+      <view class="cuIcon-people {{PageCur=='user'?'text-blue':'text-gray'}}"></view>
+    </view>
+    <view class="{{PageCur=='user'?'text-blue':'text-gray'}}">我的</view>
+  </view>
+</view>
