@@ -40,10 +40,10 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
+  "libVersion": "3.0.0",
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "appid": "wxca674222f984d3bc",
-  "projectname": "miniprogram-tfsc"
+  "appid": "wxb80d967cfcdf6573"
 }

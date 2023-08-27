@@ -1,24 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/user/home/home",
-    "pages/user/help/help",
-    "pages/user/upload/upload",
-    "pages/tools/home/home",
-    "pages/tools/preview/preview",
-    "pages/tools/resolution/resolution",
-    "pages/tools/toutiao/toutiao",
-    "pages/user/toutiaoadd/toutiaoadd",
-    "pages/tools/toutiao/toutiaodetail/toutiaodetail",
-    "pages/survey/answer/answer",
-    "pages/survey/detail/detail",
-    "pages/survey/home/home",
-    "pages/survey/myanswer/myanswer",
-    "pages/survey/mypage/maypage"
+    "pages/index/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "天府书虫",
+    "navigationBarTitleText": "老助手",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
     "onReachBottomDistance": 60

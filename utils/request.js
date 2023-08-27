@@ -1,3 +1,4 @@
+const app = getApp()
 
 function post(url, params, sourceObj, successFun, failFun, completeFun) {
   requestApi(url, params, 'POST', sourceObj, successFun, failFun, completeFun)
@@ -16,7 +17,7 @@ function requestApi(url, params, method, sourceObj, successFun, failFun, complet
   }
   params["openid"] = wx.getStorageSync('openid');
   wx.request({
-    url: 'https://magic.imjcker.com:1314/app/mrmt' + url,
+    url: app.globalData.baseUrl + url,
     method: method,
     data: params,
     header: {

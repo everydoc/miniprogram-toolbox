@@ -1,6 +1,0 @@
-/*index.wxss*/
-.charts {
-  width: 750rpx;
-  height: 500rpx;
-  background-color: #ffffff;
-}

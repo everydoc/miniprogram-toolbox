@@ -1,28 +1,111 @@
-<tools wx:if="{{PageCur=='tools'}}"></tools>
-<user wx:if="{{PageCur=='user'}}"></user>
-<survey wx:if="{{PageCur=='survey'}}"></survey>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">万能老助手</view>
+</cu-custom>
 
-
-<view class="cu-bar tabbar bg-white shadow foot">
-
-  <view class="action" bindtap="NavChange" data-cur="tools">
-    <view class='cuIcon-cu-album'>
-      <view class="cuIcon-album {{PageCur=='tools'?'text-blue':'text-gray'}}"></view>
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-gray">支持的平台：</view>
     </view>
-    <view class="{{PageCur=='tools'?'text-blue':'text-gray'}}">自媒体</view>
+    <view class="content">
+      <image src="../../images/video-icon/logo-douyin.png" class="png" mode="aspectFit"></image>
+      <image src="../../images/video-icon/logo-kuaishou.png" class="png" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+
+  <view wx:if="{{videoTitle}}" class="cu-item">
+    <view class="content">
+      <text class="text-grey text-sm">{{videoTitle?videoTitle:"视频标题"}}</text>
+    </view>
   </view>
 
-  <view class="action" bindtap="NavChange" data-cur="survey">
-    <view class='cuIcon-cu-image'>
-      <view class="cuIcon-edit {{PageCur=='survey'?'text-blue':'text-gray'}}"></view>
+  <view wx:if="{{videoUrl}}" class="cu-item" style="padding: 0;">
+    <view class="content" style="justify-content: center;">
+      <video src="{{videoUrl}}" title="{{videoTitle}}" object-fit="contain" style="width: 100%;" referrer-policy="no-referrer"></video>
     </view>
-    <view class="{{PageCur=='survey'?'text-blue':'text-gray'}}">问卷调查</view>
   </view>
 
-  <view class="action" bindtap="NavChange" data-cur="user">
-    <view class='cuIcon-cu-image'>
-      <view class="cuIcon-people {{PageCur=='user'?'text-blue':'text-gray'}}"></view>
+  <view class="cu-item">
+    <view class="action" style="justify-content: space-between;">
+      <button class="cu-btn line-blue" wx:if="{{videoUrl}}" bindtap="saveVideo" style="margin-right: 10rpx;">保存到相册</button>
+      <button class="cu-btn line-blue" bind:tap="paste" style="margin-right: 10rpx;">粘贴并解析</button>
     </view>
-    <view class="{{PageCur=='user'?'text-blue':'text-gray'}}">我的</view>
+  </view>
+  
+</view>
+
+<view class="padding flex flex-direction" wx:if="{{!isButton}}">
+  <button bindtap="submit" class="cu-btn bg-blue lg" type="" disabled>
+    <text class="cuIcon-loading iconfont-spin"></text>
+    解析中
+  </button>
+</view>
+
+<view class="cu-modal {{isShow?'show':''}}">
+  <view class="cu-dialog">
+    <video src="{{videoUrl}}" controls="false" autoplay="true" muted="true" style="margin: 25px 0px 0px">
+      <view class="cu-bar justify-end text-blue">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </video>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub solid-left text-blue" bindtap="saveVideo">保存到相册</view>
+    </view>
+  </view>
+</view>
+
+<view class='cu-load load-modal' wx:if="{{isDownload}}">
+  <image src='/images/logo.png' class='png round' mode='aspectFit'></image>
+  <view class='gray-text'>视频保存中</view>
+</view>
+
+<view class="cu-modal show" wx:if="{{isUrlDownload}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">微信域解析异常</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view>
+      你可以复制以下链接到浏览器进行下载
+    </view>
+    <view class="padding-xl">
+      <text style="-webkit-line-clamp: 2;">{{videoUrl}}</text>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-blue margin-left" bindtap="copyUrl">复制</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:if="{{info.tips.show}}">
+      <view class="title">
+        <view class="text-blue">{{info.tips.title}}</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">{{info.tips.content}}</view>
+        </view>
+      </view>
+    </view>
+
+  <view class="cu-item shadow" wx:if="{{info.notice.show}}">
+    <view class="title">
+      <view class="text-red">{{info.notice.title}}</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">{{info.notice.content}}</view>
+      </view>
+    </view>
   </view>
 </view>
