@@ -85,7 +85,7 @@ App({
     admin: "oYWWS65lYN99X5eWDyvIHQjQJOfs",
     isAdmin: false,
     openid: null,
-    baseUrl: "https://magic.imjcker.com:1314/app/toolbox",
+    baseUrl: "http://localhost:8080",
     userInfo: null
   }
 })
