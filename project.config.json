@@ -45,5 +45,6 @@
     "ignore": [],
     "include": []
   },
-  "appid": "wxb80d967cfcdf6573"
+  "appid": "wxb80d967cfcdf6573",
+  "projectname": "miniprogram-toolbox"
 }
