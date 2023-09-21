@@ -2,14 +2,15 @@
   <view slot="content">万能老助手</view>
 </cu-custom>
 
-<view class="cu-list menu card-menu margin-top">
-  <view class="cu-item shadow">
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:if="{{info.tips.show}}">
     <view class="title">
-      <view class="text-gray">支持的平台：</view>
+      <view class="text-blue">{{info.tips.title}}</view>
     </view>
     <view class="content">
-      <image src="../../images/video-icon/logo-douyin.png" class="png" mode="aspectFit"></image>
-      <image src="../../images/video-icon/logo-kuaishou.png" class="png" mode="aspectFit"></image>
+      <view class="desc">
+        <view class="text-content">{{info.tips.content}}</view>
+      </view>
     </view>
   </view>
 </view>
@@ -29,12 +30,15 @@
   </view>
 
   <view class="cu-item">
-    <view class="action" style="justify-content: space-between;">
+    <view class="content">
+      <image src="../../images/video-icon/logo-douyin.png" class="png" mode="aspectFit"></image>
+      <image src="../../images/video-icon/logo-kuaishou.png" class="png" mode="aspectFit"></image>
+    </view>
+    <view class="action">
       <button class="cu-btn line-blue" wx:if="{{videoUrl}}" bindtap="saveVideo" style="margin-right: 10rpx;">保存到相册</button>
-      <button class="cu-btn line-blue" bind:tap="paste" style="margin-right: 10rpx;">粘贴并解析</button>
     </view>
   </view>
-  
+  <button class="btn line-blue bg-white" bind:tap="paste" style="margin: 5rpx;">粘贴并解析</button>
 </view>
 
 <view class="padding flex flex-direction" wx:if="{{!isButton}}">
@@ -87,17 +91,6 @@
 </view>
 
 <view class="cu-card article">
-  <view class="cu-item shadow" wx:if="{{info.tips.show}}">
-      <view class="title">
-        <view class="text-blue">{{info.tips.title}}</view>
-      </view>
-      <view class="content">
-        <view class="desc">
-          <view class="text-content">{{info.tips.content}}</view>
-        </view>
-      </view>
-    </view>
-
   <view class="cu-item shadow" wx:if="{{info.notice.show}}">
     <view class="title">
       <view class="text-red">{{info.notice.title}}</view>

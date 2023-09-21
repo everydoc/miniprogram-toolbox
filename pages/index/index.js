@@ -9,7 +9,8 @@ Page({
     downloadUrl: '',
     isShow: false,
     isDownload: false,
-    isButton: true
+    isButton: true,
+    isParsing: false
   },
   onLoad(options) {
     that = this;
@@ -24,6 +25,25 @@ Page({
         })
       }
     })
+  },
+  onShow(){
+    if (wx.getPrivacySetting){
+      wx.getPrivacySetting({
+        success: res => {
+          if (res.needAuthorization) {
+            this.setData({
+              modalName: 'dialogPrivacy',
+              privacyContractName: res.privacyContractName
+            })
+          }
+        },
+        fail: () => {
+          console.log('get privacy setting failed')
+        }
+      })
+    } else {
+      console.log('隐私保护政策暂不可用')
+    }
   },
   // 视频地址匹配是否合法
   regUrl: function (t) {
@@ -51,7 +71,7 @@ Page({
     var params = {
       url: this.data.url
     };
-    request.post('/video/getInfo', params, this, function (res) {
+    request.post('/video/getInfoOss', params, this, function (res) {
       if (res.code != 1) {
         that.showToast('解析失败请检查链接正确性,或重试一次')
       } else {
@@ -132,15 +152,6 @@ Page({
                   isDownload: false,
                   isShow: false,
                 })
-                // 扣分
-                request.get('/user/minusPoints', {}, this,
-                  (res) => {
-                    // console.log('减分成功：', res.data)
-                  },
-                  (err) => {
-                    console.log('扣分失败')
-                  }
-                );
               },
               fail: function (o) {
                 console.log(o)
@@ -176,15 +187,6 @@ Page({
     wx.setClipboardData({
       data: this.data.videoUrl,
     });
-    // 扣分
-    request.get('/user/minusPoints', {}, this,
-      (res) => {
-        // console.log('减分成功：', res.data)
-      },
-      (err) => {
-        console.log('扣分失败')
-      }
-    );
   },
   showToast: function (text) {
     wx.showToast({
@@ -200,7 +202,7 @@ Page({
         var str = res.data.trim()
         // console.log(str)
         if (this.regUrl(str)) {
-          request.get('/video/getInfo', {
+          request.get('/video/getInfoOss', {
               url: this.findUrlByStr(str)[0]
             }, this,
             res => {
